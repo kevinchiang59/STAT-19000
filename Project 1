@@ -1,0 +1,47 @@
+1a. Find the number of flights that occurred on every day of the year
+Command used: cat 2005.csv | cut -d , -f2-3 | sort | uniq -c | sort -n
+(shortened)10 lines of command: 
+  20959 7,15
+  20962 7,22
+  20977 8,3
+  20979 8,10
+  21006 8,8
+  21013 8,1
+  21022 8,11
+  21022 8,4
+  21037 8,12
+  21041 8,5
+I received help from my friend Manoj. In this command, I cut out the month and day (2-3) of all the flights, and sorted the data by going from least to most flights. 
+
+1b. Find the day on which the most flights occur.
+Command used: cat 2005.csv | cut -d , -f2-3 | sort | uniq -c | sort -n (same code)
+Result: 21041 8,5
+The answer can be found with the previous data result. The most flights occured on August 5 (8,5) and there were 21041 flights on that date.
+
+2. Again considering the year 2005, did United or Delta have more flights?
+Commands used: 
+cat 2005.csv | cut -d , -f9 | sort | uniq -c | sort -n | grep UA
+cat 2005.csv | cut -d , -f9 | sort | uniq -c | sort -n | grep DL
+Result: 
+485918 UA
+658302 DL
+In the command, I asked to display specific carriers in the file, and had them sorted in order. By using grep, the program added all the flights together in a specific carrier. The results showed that Delta airlines had more flights in 2005.
+
+3. What is the distribution of the number of passengers in taxi cab rides?
+Command used:
+cat yellow_tripdata_2017-06.csv | cut -d , -f4 | sort | uniq -c | sort -n
+Result:
+20 9
+     26 7
+     30 8
+    548 0
+ 187979 4
+ 288220 6
+ 406162 3
+ 455753 5
+1385066 2
+6933189 1
+In the command, I had the terminal compile all the files in the trip data together, then cut out the data on the car rides. The results show the number of rides given on the left, and the numbers on the right are the number of each passenger in each taxi. 
+ 
+
+
