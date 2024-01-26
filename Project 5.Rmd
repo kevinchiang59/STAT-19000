@@ -1,0 +1,30 @@
+---
+title: "Projecct5"
+output: pdf_document
+---
+
+# TA NOTES
+# Great job!
+# 9.5/10 (You forgot to omit values <= 80 on your second plot!)
+
+I had to source help again on both of these questions. 
+The PDF showing the results is another file called projecct5result.pdf
+Number 1: 
+```{r}
+AirlineDF = read.csv("/depot/statclass/data/dataexpo2009/2005.csv")
+ta = tapply(AirlineDF$Distance, AirlineDF$UniqueCarrier, mean)
+ta = sort(ta)
+ta
+dotchart(as.numeric(ta), main = "Average distance of each Airline in 2005; ")
+```
+The function above plots and sorts the airline rides, and orders it by the average distance on the dotplot.
+
+Number 2
+```{r}
+taxiDF = read.csv("/depot/statclass/data/taxi2018/yellow_tripdata_2017-06.csv")
+ra = tapply(taxiDF$total_amount, taxiDF$PULocationID, mean)
+ra = sort(ra)
+ra
+dotchart(as.numeric(ra), main = "Average total amount of Cost of Taxi Ride by Pickup Location ID")
+```
+The second function serves the same purpose, but uses data from taxi rides.  

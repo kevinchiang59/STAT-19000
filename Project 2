@@ -1,0 +1,102 @@
+#TA NOTES:
+# Nice work!
+# 10/10
+
+
+1. Use the airline data stored in this directory:
+
+/depot/statclass/data/dataexpo2009
+
+1a. What was the average arrival delay (in minutes) for flights in 2005?
+
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat 2005.csv | awk -F, '{arrdelay += $15; numFlights +=1 } END{print arrdelay/numFlights}'
+This command takes the arrival delays in 2005 and averages it out in minutes
+
+Result:
+7.03274
+
+1b. What was the average departure delay (in minutes) for flights in 2005?
+
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat 2005.csv | awk -F, '{arrdelay += $16; numFlights +=1 } END{print arrdelay/numFlights}'
+This command is almost the same as 1a, but uses $16 to find departure delay
+
+Result:
+8.51186
+
+1cd. Now revise your solution to 1ab, to account for the full set of data, across all years.
+
+1c.
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $  cat allyears.csv | awk -F, '{arrdelay += $15; numFlights +=1 } END{print arrdelay/numFlights}'
+This command is the same as 1a, but I am pulling data from all years (1987-2000) instead of just 2005
+
+Result:
+6.9023
+
+1d.
+Command used: 
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $  cat allyears.csv | awk -F, '{arrdelay += $15; numFlights +=1 } END{print arrdelay/numFlights}'
+The command is the same as 1b, but the data is pulled from all years also
+
+Result:
+8.01844
+
+2. Revise your solutions to 1abcd to only include flights that took place on the weekends.
+
+2a.
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat 2005.csv | awk -F, '{if($4 == 6 || $4 == 7){arrdelay += $15 ; numFlights +=1 }} END{print arrdelay/numFlights}'
+I received help on this question from my friend Manoj. The if statements only pull data from certain days, that is Saturday and Sunday
+
+Result:
+4.84079
+
+2b. 
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat 2005.csv | awk -F, '{if($4 == 6 || $4 == 7){arrdelay += $16 ; numFlights +=1 }} END{print arrdelay/numFlights}'
+The command is the same as 2a, but uses $16 to return departure delay instead of arrival delay
+
+Result:
+7.51425
+
+2c.
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat allyears.csv | awk -F, '{if($4 == 6 || $4 == 7){arrdelay += $15 ; numFlights +=1 }} END{print arrdelay/numFlights}'
+This command is similar to 1c, but uses if statements from 2a
+
+Result:
+5.30331 
+
+2d.
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/dataexpo2009 $ cat allyears.csv | awk -F, '{if($4 == 6 || $4 == 7){arrdelay += $16 ; numFlights +=1 }} END{print arrdelay/numFlights}'
+This command is also similar to 2c, but uses $16 to find departure delay
+
+Result:
+7.55609
+
+3. Consider the June 2017 taxi cab data, which is located in this folder:
+
+/depot/statclass/data/taxi2018
+
+What is the average distance of a taxi cab ride in New York City in June 2017?
+
+Command used:
+chiang59@scholar-fe04:/depot/statclass/data/taxi2018 $ cat yellow_tripdata_2017-06.csv | awk -F, '{distance += $5; numTaxis += 1} END{print distance/numTaxis}'
+I also received help on this problem from my friend. This command returns the average trip distance of a taxi cab in June 2017
+
+Result:
+2.97862
+
+
+
+
+
+
+
+
+
+
+

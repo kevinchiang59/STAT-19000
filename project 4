@@ -1,0 +1,12 @@
+I got some help from one of my friends on this project, since I had almost no clue what to do. The code seems to be okay but the maps won't load, so there is no pdf available.
+install.packages("ggmap")
+library(ggmap)
+myDF = read.csv("airports.csv")
+myDF = myDF[myDF$state == "IN",]
+myPoints = data.frame(lat = myDF$lat, lon = myDF$long)
+indiana_center = ggmap(get_googlemap(center = c(39.7684, -86.1581)))
+I tried making the google maps, but it gies a 403 error.
+IndianaMap = ggmap(get_googlemap(center = indiana_center,zoom = 7))
+IndianaMap = IndianaMap + geom_point(data = mypoints)
+IndianaMap
+dev.print(pdf, "INAirports.pdf")

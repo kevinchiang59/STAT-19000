@@ -1,0 +1,18 @@
+Here is the code used to complete the problems.
+Even though I received help from my roomates, I could not get it to work. 
+1.
+myDF5 <- read.csv("/home/chiang59/baseballdatabank-master/core/Batting.csv")
+MyForty = subset (myDF5, HR >= 40 & SB >= 40)
+The code above filters through the batting archive and takes players who have hit more than 40 home runs (HR) and stolen more than 40 bases (SB).
+2.
+MyFortyHomeRuns = tapply(myDF5$HR, myDF5$yearID, sum, na.rm = TRUE)
+plot (names(HomeRuns), HomeRuns, xlab = "years", ylab = "HR")
+This is the plotting functionthat plots the home runs per year.
+3.
+myBatting <- read.csv("/home/chiang59/baseballdatabank-master/core/Batting.csv")
+myPeople <- ("/home/chiang59/baseballdatabank-master/core/Batting.csv")
+myDF5 <- merge(myBatting, myPeople, by="playerID")
+myDF5$FullName <- paste(myDF5$nameFirst, myDF5$nameLast)
+FullName = subset(myDF5, HR >=40 & SB >= 40)
+Fullname$Fullname
+This code is supposed to allow the user to view the compiled players' full names.

@@ -1,0 +1,23 @@
+---
+title: "Project 6"
+author: "Kevin Chiang"
+date: (October 18, 2018)
+output: pdf_document
+---
+I couldn't get my pdf to work properly, and I needed to ask for help on this project.
+1.
+```{r setup, include=FALSE}
+sort(table(myDF3$V10))
+```
+Top 5: California, New York, Texas, Florida, and Pennsylvania
+myDF3$V10 is the file that the contribution by state is being pulled from. the sort function is supposed to file the data into a table in numerical order
+
+2.
+~/by_date $ cat donation.txt | awk -F \| '{print $10}' | sort | uniq -c | sort -n
+awk is supposed to print the values from file 10 out, and sort uniq -c and sort -n is supposed to sort the values into unique groups and numerical order
+3.
+```{r setup, include=FALSE}
+sort(tapply(myDF3$V15, myDF3$V10, sum, na.rm=T))
+```
+Top 5: California, New York, Texas, Florida, DC
+sort sorts the values into numerical order, and tapply organizes data and operates a sum funciton on the data groups
